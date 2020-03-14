@@ -1,0 +1,15 @@
+script:
+- |-
+  git config user.name "epalto"
+  git config user.email "epalanquestost@mgh.harvard.edu"
+  git remote remove origin
+  git remote add origin https://$GITHUB_API_KEY@github.com/mit-ccrg/icu-wiki.git > /dev/null 2>&1
+  git remote add upstream https://$GITHUB_API_KEY@github.com/mit-ccrg/icu-wiki.git > /dev/null 2>&1
+  git fetch origin
+  git fetch upstream
+  git merge upstream/master --no-edit
+  git push origin HEAD:master > /dev/null 2>&1
+  git push upstream HEAD:master > /dev/null 2>&1
+env:
+  matrix:
+    secure: AHpibSogD3rxUj64hoDD3MccDnjF68cdKeFqlXI1uk6UD/BlCX3BA83mWb5V0N/2hVOFNJdkMF9yDH6rsnYFe8nVr28EETUcnJ+2jA6vwHPY3I1U9ZaeavHT4J7GJ3BXhr1Xl27y3gnwUIXy3BcEnxqQxOK7YwY54e57FwFXvVyl6ZAXXxDC2ARXoR+T5A791gpbwjMHGm16jcYOrlMjo0p7oAKSvu5awoU2gPpqdJSkMOZukoqdktBqEhGOa7t9bw70KBisXC49pCnKgF09eEtCzPWt9VgQGYJqNLVLMdITb7K2D7xSlYpWT53/SvDv1Z67mi84ZzNQeLB1i6thuls1MH/PPqvAu90nutIN76fPBXA4CaOuonQuFWPYQ/eo1EJ/n2WbaUgkJcmywZPFErxxxNSG5bD7R2diqmYsf3wUtIfNdB0o1eQVpuBJFWIrfnhRRnkOqLaX4ry+XQAgwXklwbqzzOwF6QFC9RN1loO+WDBFsQT8hBK7B3zz9OPYHY+4XTnscfQgLDCH4mCtNXj35xgRzL98lAniFwwjFfVWveCVAYi3DsWrqy1HJRn2ZQysqumN9EibPyQKHMZCjNo8mH+Y9LacU/RWvadi2AuT5A8w5Zo6tqjSVGRd2maSGqQyZ6AYkj5VT8re3vKpdOgqudzQkAqQWV+iSBFgM2k=
